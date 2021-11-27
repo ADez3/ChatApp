@@ -33,11 +33,11 @@ class Message{
           lastMessage: 'Hi did you do what I told you ?',
           lastTime: '12:50',
           isContinue: false),
-      Message(
-          user: users[7],
-          lastMessage: 'Hi did you do what I told you ?',
-          lastTime: '22:28',
-          isContinue: false),
+      // Message(
+      //     user: users[7],
+      //     lastMessage: 'Hi did you do what I told you ?',
+      //     lastTime: '22:28',
+      //     isContinue: false),
       Message(
           user: users[3],
           lastMessage: 'Hi did you do what I told you ?',
@@ -48,16 +48,16 @@ class Message{
           lastMessage: 'Hi did you do what I told you ?',
           lastTime: '06:10',
           isContinue: false),
-      Message(
-          user: users[9],
-          lastMessage: 'Hi did you do what I told you ?',
-          lastTime: '07:00',
-          isContinue: false),
-      Message(
-          user: users[10],
-          lastMessage: 'Hi did you do what I told you ?',
-          lastTime: '00:00',
-          isContinue: false),
+      // Message(
+      //     user: users[9],
+      //     lastMessage: 'Hi did you do what I told you ?',
+      //     lastTime: '07:00',
+      //     isContinue: false),
+      // Message(
+      //     user: users[10],
+      //     lastMessage: 'Hi did you do what I told you ?',
+      //     lastTime: '00:00',
+      //     isContinue: false),
       Message(
           user: users[6],
           lastMessage: 'Hi did you do what I told you ?',
@@ -68,11 +68,11 @@ class Message{
           lastMessage: 'Hi did you do what I told you ?',
           lastTime: '15:45',
           isContinue: false),
-      Message(
-          user: users[8],
-          lastMessage: 'Hi did you do what I told you ?',
-          lastTime: '18:40',
-          isContinue: false),
+      // Message(
+      //     user: users[8],
+      //     lastMessage: 'Hi did you do what I told you ?',
+      //     lastTime: '18:40',
+      //     isContinue: false),
     ];
   }
 }

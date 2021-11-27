@@ -1,5 +1,6 @@
 import 'package:chatapp/constants/colors.dart';
 import 'package:chatapp/screens/home/widgets/recent_contacts.dart';
+import 'package:chatapp/screens/home/widgets/recent_messages.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,17 +18,18 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.only(left: 20.0,top: 15),
+              padding: EdgeInsets.only(left: 25.0,top: 30),
               child: Text(
-                'Chat App or shut up',
+                'Chat App \n or Shut Up',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 24,
                 ),
               ),
             ),
             RecentContacts(),
+            RecentMessages(),
           ],
         ),
       ),
