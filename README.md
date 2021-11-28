@@ -6,7 +6,7 @@ Chat App.
 
 This project is a starting point for a Flutter application.
 
-![Screenshot_20211127-211308](https://user-images.githubusercontent.com/65213610/143720997-991dd058-ec64-4b7e-8d09-f340ba59a7fd.jpg)
+![image](https://user-images.githubusercontent.com/65213610/143723891-063ca4cf-6294-4778-b133-95c07d7c5e0b.png)
 
 
 A few resources to get you started if this is your first Flutter project:
