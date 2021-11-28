@@ -5,7 +5,8 @@ class ConAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
-        top: MediaQuery.of(context).padding.top,
+        top: 40,
+        bottom: 20,
         left: 20,
         right: 20
       ),
@@ -22,16 +23,7 @@ class ConAppBar extends StatelessWidget {
               ),
             ),
           ),
-          TextButton(
-            onPressed: () {},
-            child: Text(
-              'Search',
-              style: TextStyle(
-                  color: Colors.white.withOpacity(0.5),
-                fontSize: 16,
-              ),
-            ),
-          ),
+
         ],
       ),
     );
