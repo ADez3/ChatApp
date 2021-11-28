@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.only(left: 25.0,top: 30),
               child: Text(
-                'Chat App \n or Shut Up',
+                'Chat with \n your friends',
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

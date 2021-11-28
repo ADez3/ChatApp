@@ -1,4 +1,5 @@
 import 'package:chatapp/models/message_model.dart';
+import 'package:chatapp/screens/conversation/widgets/conversation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -27,72 +28,83 @@ class RecentMessages extends StatelessWidget {
   Widget rcmessages() {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) => messagebuilder(index),
+      itemBuilder: (context, index) => messagebuilder(context ,index),
       separatorBuilder: (_, index) => const SizedBox(
-        height: 20,
+        height: 22,
       ),
       itemCount: messagesList.length,
     );
   }
 
-  messagebuilder(int index) {
-    return Row(
-      children: [
-        CircleAvatar(
-          child: Image.asset(
-            messagesList[index].user.avatar,
-            height: 70,
+  messagebuilder(BuildContext context,int index) {
+    return GestureDetector(
+      onTap: ()
+      {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) =>  Conversation(
+              messagesList[index],
+            ),
+        )
+        );
+      },
+      child: Row(
+        children: [
+          CircleAvatar(
+            child: Image.asset(
+              messagesList[index].user.avatar,
+              height: 70,
+            ),
+            backgroundColor: messagesList[index].user.bgColor,
+            radius: 42,
           ),
-          backgroundColor: messagesList[index].user.bgColor,
-          radius: 42,
-        ),
-        const SizedBox(
-          width: 10,
-        ),
-        Flexible(
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '${messagesList[index].user.fName} ${messagesList[index].user.lName}',
-                    maxLines: 2,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  Text(
-                    messagesList[index].lastTime,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w300,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 7,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    messagesList[index].lastMessage,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ],
-              ),
-            ],
+          const SizedBox(
+            width: 10,
           ),
-        ),
-      ],
+          Flexible(
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '${messagesList[index].user.fName} ${messagesList[index].user.lName}',
+                      maxLines: 2,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    Text(
+                      messagesList[index].lastTime,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 7,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      messagesList[index].lastMessage,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                      style: const TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

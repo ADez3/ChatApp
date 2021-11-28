@@ -24,7 +24,7 @@ class RecentContacts extends StatelessWidget {
             backgroundColor: kIcons,
             radius: 25,
           ),
-          const SizedBox(width: 10,),
+          const SizedBox(width: 20,),
           Expanded(
             child: ListView.separated(
               physics: const BouncingScrollPhysics(),
@@ -35,7 +35,7 @@ class RecentContacts extends StatelessWidget {
                 child: Image.asset(contactsList[index].avatar,height: 40,),
               ),
               separatorBuilder: (_, index) => const SizedBox(
-                width: 10,
+                width: 20,
               ),
               itemCount: contactsList.length,
             ),

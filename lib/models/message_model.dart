@@ -1,4 +1,5 @@
 import 'package:chatapp/models/user_model.dart';
+import 'package:flutter/material.dart';
 
 
 var users = User.usersList();
@@ -75,4 +76,44 @@ class Message{
       //     isContinue: false),
     ];
   }
+  static List<Message> chatMessages(){
+    return[
+      Message(
+          user: users[0],
+          lastMessage: 'Hi',
+          lastTime: '05:30',
+          isContinue: false),
+      Message(
+          user: me,
+          lastMessage: 'Hi ',
+          lastTime: '05:31',
+          isContinue: false),
+      Message(
+          user: users[0],
+          lastMessage: 'I think you downloaded the project from github and it works 👌',
+          lastTime: '05:31',
+          isContinue: false),
+      Message(
+          user: me,
+          lastMessage: 'Yes everything works well is there any more steps ? because the app is not dynamic',
+          lastTime: '05:32',
+          isContinue: false),
+      Message(
+          user: users[0],
+          lastMessage: 'You got one more step to do that is connecting this app with api or firebase',
+          lastTime: '05:33',
+          isContinue: true),
+      Message(
+          user: users[0],
+          lastMessage: 'And it will work 😊 ',
+          lastTime: '05:33',
+          isContinue: false),
+      Message(
+          user: me,
+          lastMessage: 'OK I will try',
+          lastTime: '05:33',
+          isContinue: false),
+    ];
+  }
 }
+var me = User(id: 0, fName: 'User', lName: 'User', avatar: 'assets/images/user0.png', bgColor: const Color(0xFFFDBEC8));
