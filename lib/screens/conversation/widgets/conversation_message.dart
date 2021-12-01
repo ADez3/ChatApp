@@ -21,13 +21,13 @@ class ConversationMessage extends StatelessWidget {
               topLeft: Radius.circular(30),
             ),
           ),
-          padding: const EdgeInsets.fromLTRB(25, 20, 25, 80),
+          padding: const EdgeInsets.fromLTRB(25, 0, 25, 70),
           child: ListView.separated(
             padding: EdgeInsets.zero,
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context,index) =>
             list[index].user.id == myId ? _sendMessage(list[index]) : _receiveMessage(list[index]),
-              separatorBuilder: (_,index){return const SizedBox(height: 10,);},
+              separatorBuilder: (_,index){return const SizedBox(height: 0,);},
               itemCount: list.length,
           ),
         ),
@@ -42,7 +42,7 @@ class ConversationMessage extends StatelessWidget {
                 decoration: InputDecoration(
                   fillColor: kGreyLight.withOpacity(0.2),
                   filled: true,
-                  contentPadding: EdgeInsets.only(left: 20,top: 15,right:5,bottom: 15,),
+                  contentPadding: const EdgeInsets.only(left: 20,top: 15,right:5,bottom: 15,),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     borderSide: BorderSide.none,
@@ -57,7 +57,7 @@ class ConversationMessage extends StatelessWidget {
                   right: 10,
                   child: Container(
                     padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: kPrimary,
                     ),
@@ -72,73 +72,79 @@ class ConversationMessage extends StatelessWidget {
   }
 
   _receiveMessage(Message message) {
-     return Row(
-       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-       children: [
-         Row(
-           children: [
-             message.isContinue ?
-             const SizedBox(width: 40,) :
-             CircleAvatar(
-               child:Image.asset(message.user.avatar),
-               backgroundColor: message.user.bgColor.withOpacity(0.5),
-             ),
-             const SizedBox(width: 8,),
-             Container(
-               padding: const EdgeInsets.all(20),
-               decoration: BoxDecoration(
-                 color: message.user.bgColor.withOpacity(0.5),
-                 borderRadius: const BorderRadius.only(
-                   topLeft: Radius.circular(40),
-                   topRight: Radius.circular(40),
-                   bottomRight: Radius.circular(40),
+     return Container(
+       padding: const EdgeInsets.only(bottom: 10),
+       child: Row(
+         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+         children: [
+           Row(
+             children: [
+               message.isContinue ?
+               const SizedBox(width: 40,) :
+               CircleAvatar(
+                 child:Image.asset(message.user.avatar),
+                 backgroundColor: message.user.bgColor.withOpacity(0.5),
+               ),
+               const SizedBox(width: 8,),
+               Container(
+                 padding: const EdgeInsets.all(20),
+                 decoration: BoxDecoration(
+                   color: message.user.bgColor.withOpacity(0.5),
+                   borderRadius: const BorderRadius.only(
+                     topLeft: Radius.circular(40),
+                     topRight: Radius.circular(40),
+                     bottomRight: Radius.circular(40),
+                   ),
+                 ),
+                 child: ConstrainedBox(
+                   constraints: const BoxConstraints(maxWidth: 200),
+                   child: Text(message.lastMessage,style: const TextStyle(
+                     height: 1.5,
+                   ),),
                  ),
                ),
-               child: ConstrainedBox(
-                 constraints: const BoxConstraints(maxWidth: 200),
-                 child: Text(message.lastMessage,style: const TextStyle(
-                   height: 1.5,
-                 ),),
-               ),
-             ),
-           ],
-         ),
-         Text(message.lastTime,
-           style: const TextStyle(
-             color: kGreyLight,
-             fontSize: 12,
-           ),),
-       ],
+             ],
+           ),
+           Text(message.lastTime,
+             style: const TextStyle(
+               color: kGreyLight,
+               fontSize: 12,
+             ),),
+         ],
+       ),
      );
   }
 
   _sendMessage(Message message) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(message.lastTime,
-        style: const TextStyle(
-          color: kGreyLight,
-          fontSize: 12,
-        ),),
-        Container(
-          padding: const EdgeInsets.all(20),
-          decoration: const BoxDecoration(
-            color: kPrimaryLight,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
-              bottomLeft: Radius.circular(40),
+    return Container(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(message.lastTime,
+          style: const TextStyle(
+            color: kGreyLight,
+            fontSize: 12,
+          ),),
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
+              color: kPrimaryLight,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+                bottomLeft: Radius.circular(40),
+              ),
+            ),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 200),
+              child: Text(message.lastMessage,style: const TextStyle(
+                height: 1.5,
+              ),),
             ),
           ),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 200),
-            child: Text(message.lastMessage,style: const TextStyle(
-              height: 1.5,
-            ),),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

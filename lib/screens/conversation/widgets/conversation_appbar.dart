@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ConAppBar extends StatelessWidget {
+  const ConAppBar({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 40,
         bottom: 20,
         left: 20,
